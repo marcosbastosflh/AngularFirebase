@@ -25,7 +25,7 @@
   
   var ref = firebase.database().ref();
 
-ref.child("mensagem").once("value").then(function(snapshot) {
+  ref.child("mensagem").once("value").then(function(snapshot) {
     var test = snapshot.val(); 
     console.log(test);
 });
