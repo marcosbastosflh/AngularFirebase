@@ -1,22 +1,14 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2';
+
 
 @Injectable()
 export class MensagemService {
   
-  constructor() { }
+  constructor(private db:AngularFireDatabase) { }
 
-  getAll(){
-    return ['Mensagem 1', 'Mensagem 2', 'Mensagem 3'];
-  }
-
-  connect(){
-    var ref = firebase.database().ref();
-    ref.child("mensagem")
-       .once("value")
-       .then(function(snapshot) {
-                  var test = snapshot.val(); 
-                  console.log(test);
-              });
+  getMensagens():FirebaseListObservable<any[]>{
+    return this.db.list('/mensagem');
   }
 
 }

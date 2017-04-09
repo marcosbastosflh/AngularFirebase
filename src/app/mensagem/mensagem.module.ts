@@ -17,7 +17,7 @@ export const firebaseConfig = {
 @NgModule({
   imports: [
     CommonModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   declarations: [
     MensagemComponent

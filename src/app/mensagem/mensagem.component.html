@@ -1,3 +1,7 @@
-<p>
-  {{ msg }} componente!
-</p>
+msg - service
+<ul>
+  <li class="text" *ngFor="let item of mensagens | async">
+    {{item.descricao}}
+  </li>
+</ul>
+<br/>

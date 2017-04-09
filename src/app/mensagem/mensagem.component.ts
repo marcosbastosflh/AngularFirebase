@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MensagemService } from './mensagem.service';
+import { FirebaseListObservable } from 'angularfire2';
 
 @Component({
   selector: 'app-mensagem',
@@ -9,12 +10,16 @@ import { MensagemService } from './mensagem.service';
 })
 export class MensagemComponent implements OnInit {
 
-  msg : string[];
+  mensagens : FirebaseListObservable<any[]>;
 
   constructor(private mensagemService:MensagemService) {
-    this.msg = this.mensagemService.getAll();
-    //this.mensagemService.connect();
-   }
+
+    this.mensagens = this.mensagemService.getMensagens();
+
+    // this.mensagens.forEach(element => {
+    //   console.log(element);
+    // });
+  }
 
   ngOnInit() {
   }
