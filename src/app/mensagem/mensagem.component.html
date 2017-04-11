@@ -1,7 +1,10 @@
-msg - service
-<ul>
-  <li class="text" *ngFor="let item of mensagens | async">
-    {{item.descricao}}
-  </li>
-</ul>
-<br/>
+<div class="panel panel-info">
+  <div class="panel-heading">Mensagens</div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of mensagens | async">
+        {{item.descricao}}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { AlertModule } from 'ngx-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AppComponent } from './app.component';
 import { MensagemModule } from './mensagem/mensagem.module';
@@ -23,7 +24,7 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpModule,    
     AngularFireModule.initializeApp(firebaseConfig),
     MensagemModule
   ],
