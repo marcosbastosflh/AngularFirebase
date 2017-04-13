@@ -1,14 +1,40 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2';
 
+import { Mensagem } from './mensagem.model';
 
 @Injectable()
 export class MensagemService {
   
+  /** lista de mensagem ordenada por descrição */
+  private items: FirebaseListObservable<any> = this.db.list('/mensagem', {
+      query: {
+        orderByChild: 'descricao'
+      }
+    }
+  );
+
+  /** construtor com instância para firebase */
   constructor(private db:AngularFireDatabase) { }
 
-  getMensagens():FirebaseListObservable<any[]>{
-    return this.db.list('/mensagem');
+  /** listar todas mensagens */
+  getMensagens():FirebaseListObservable<Mensagem[]>{
+    return this.items;
+  }
+
+  /** adicionar mensagem */
+  addMensagem(msg: Mensagem){
+    console.log('service-add: ' + msg.descricao);
+    //enviando a Mensagem para o firebase
+    this.items.push(msg);
+    //this.items.push({ id: 9, descricao: 'teste 9', data: new Date().getTime() });
+  }
+
+  /** excluir mensagem passando uma Mensagem*/
+  delMensagem(msg: any){
+    console.log('service-del: ' + msg.descricao);
+    //removendo a Mensagem do firebase
+    this.items.remove(msg);
   }
 
 }
