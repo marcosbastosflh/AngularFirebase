@@ -2,12 +2,11 @@
   <div class="panel-heading">Mensagens</div>
   <div class="panel-body" >
     <div class="input-group input-group-sm col-md-8 col-md-offset-2">
-    <form ngNoForm (submit)="addMensagem(mensagem)">
+    <form #loginForm="ngForm">
       <div class="form-group">
         <input type="text" name="codigo" class="form-control" required placeholder="Código" [(ngModel)]="mensagem.codigo" />
         <input type="text" name="descricao" class="form-control" required placeholder="Descrição" [(ngModel)]="mensagem.descricao" />
-        <button type="submit" class="btn btn-info btn-sm" >Adicionar Form</button>
-        <button type="submit" class="btn btn-info btn-sm" (click)="addMensagem(mensagem)">Adicionar</button>
+        <button type="submit" class="btn btn-info btn-sm" [disabled]="!loginForm.form.valid" (click)="addMensagem(mensagem)">Adicionar</button>
       </div>
     </form>
     <div class="table-responsive col-md-8 col-md-offset-2">
