@@ -12,7 +12,7 @@ import { Mensagem } from './mensagem.model';
 export class MensagemComponent implements OnInit {
 
   /** mensagem para o template/bind */
-  mensagem : Mensagem = new Mensagem("");
+  mensagem : Mensagem = new Mensagem("","");
 
   /** lista de mensagens para o template/bind */
   mensagens : FirebaseListObservable<any[]>;
@@ -23,9 +23,10 @@ export class MensagemComponent implements OnInit {
   /** adicionar mensagem */
   addMensagem(msg:Mensagem){
     console.log('component-add: ' + msg.descricao);
+    msg.descricoMinusculo = msg.descricao.toLowerCase();
     this.mensagemService.addMensagem(msg);
     //limpando campos da tela
-    this.mensagem = new Mensagem("");
+    this.mensagem = new Mensagem("","");
   }
 
   /** excluir mensagem */

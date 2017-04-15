@@ -9,7 +9,7 @@ export class MensagemService {
   /** lista de mensagem ordenada por descrição */
   private items: FirebaseListObservable<any> = this.db.list('/mensagem', {
       query: {
-        orderByChild: 'descricao'
+        orderByChild: 'descricoMinusculo'
       }
     }
   );

@@ -1,11 +1,13 @@
 export class Mensagem {
     codigo: string;
     descricao: string;
+    descricoMinusculo: string;
     data: number;
 
-    constructor(descricao:string){
-        //this.codigo = codigo;
+    constructor(codigo:string, descricao:string){
+        this.codigo = codigo;
         this.descricao = descricao;
+        this.descricoMinusculo = descricao.toLowerCase();
         this.data = new Date().getTime(); 
     }
 }
