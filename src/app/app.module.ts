@@ -7,6 +7,10 @@ import { AlertModule } from 'ngx-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AppComponent } from './app.component';
 import { MensagemModule } from './mensagem/mensagem.module';
+import { AppheaderComponent } from './appheader/appheader.component';
+import { AppfooterComponent } from './appfooter/appfooter.component';
+import { AppmenuComponent } from './appmenu/appmenu.component';
+import { AppsettingsComponent } from './appsettings/appsettings.component';
 
 // Must export the config
 export const firebaseConfig = {
@@ -19,7 +23,11 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppheaderComponent,
+    AppfooterComponent,
+    AppmenuComponent,
+    AppsettingsComponent
   ],
   imports: [
     BrowserModule,

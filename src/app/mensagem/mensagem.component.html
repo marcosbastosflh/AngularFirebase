@@ -1,5 +1,5 @@
-<div class="panel panel-info col-md-8 col-md-offset-2">
-  <div class="panel-heading text-center">Mensagens</div>
+<div>
+  <!--<div class="panel-heading text-center">Mensagens</div>-->
   <div class="panel-body">
     <div class="input-group input-group-sm  col-md-8 col-md-offset-2">
     <form #loginForm="ngForm">
@@ -11,17 +11,17 @@
         </div>
       </div>
     </form>
-    <div class="table-responsive col-md-8 col-md-offset-2">
+    <div class="table-responsive ">
       <table class="table table-striped table-hover">
-        <th class="text-center">Cód</th>
+        <th class="text-left">Código</th>
         <th class="text-center">Descrição</th>
         <th class="text-center">Cadastro</th>
-        <th class="text-center">Ação</th>
+        <th class="text-right"></th>
         <tr *ngFor="let item of mensagens | async">
-          <td class="text-center">{{item.codigo}}</td>
+          <td class="text-left">{{item.codigo}}</td>
           <td>{{item.descricao}}</td>
           <td class="text-center">{{item.data | date :  "dd/MM/yyyy"}}</td>
-          <td class="text-center"><button class="btn btn-danger btn-sm" (click)="delMensagem(item)">Excluir</button></td>
+          <td class="text-right"><button class="btn btn-danger btn-sm" (click)="delMensagem(item)">Excluir</button></td>
         </tr>
       </table>
     </div>
