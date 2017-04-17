@@ -11,6 +11,9 @@ import { Mensagem } from './mensagem.model';
 })
 export class MensagemComponent implements OnInit {
 
+  //variável para controlar que item será removido
+  key: string; 
+
   /** mensagem para o template/bind */
   mensagem : Mensagem = new Mensagem("","");
 
@@ -29,12 +32,15 @@ export class MensagemComponent implements OnInit {
     this.mensagem = new Mensagem("","");
   }
 
+  /** seta o item a ser removido */
+  setKey(key:string){
+    this.key = key; 
+  }
+
   /** excluir mensagem */
-  delMensagem(msg:Mensagem){
-    console.log('component-del: ' + msg.descricao);
-    if (confirm("Confirmar exclusão?")) {
-      this.mensagemService.delMensagem(msg);
-    }
+  delMensagem(){
+    console.log("component-del: "+ this.key);
+    this.mensagemService.delMensagem(this.key);
   }
 
   /** carregar todas as mensagens ao iniciar */

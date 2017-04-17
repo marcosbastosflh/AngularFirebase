@@ -31,10 +31,10 @@ export class MensagemService {
   }
 
   /** excluir mensagem passando uma Mensagem*/
-  delMensagem(msg: any){
-    console.log('service-del: ' + msg.descricao);
+  delMensagem(key: string){
+    console.log('service-del: ' + key);
     //removendo a Mensagem do firebase
-    this.items.remove(msg);
+    this.items.remove(key);
   }
 
 }
