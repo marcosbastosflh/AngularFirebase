@@ -24,7 +24,7 @@ export class MensagemService {
 
   /** adicionar mensagem */
   addMensagem(msg: Mensagem){
-    console.log('service-add: ' + msg.descricao);
+    // console.log('service-add: ' + msg.descricao);
     //enviando a Mensagem para o firebase
     this.items.push(msg);
     //this.items.push({ id: 9, descricao: 'teste 9', data: new Date().getTime() });
@@ -32,7 +32,7 @@ export class MensagemService {
 
   /** excluir mensagem passando uma Mensagem*/
   delMensagem(key: string){
-    console.log('service-del: ' + key);
+    // console.log('service-del: ' + key);
     //removendo a Mensagem do firebase
     this.items.remove(key);
   }

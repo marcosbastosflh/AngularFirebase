@@ -12,20 +12,20 @@ import { Mensagem } from './mensagem.model';
 export class MensagemComponent implements OnInit {
 
   //variável para controlar que item será removido
-  key: string; 
+  private key: string; 
 
   /** mensagem para o template/bind */
-  mensagem : Mensagem = new Mensagem("","");
+  private mensagem : Mensagem = new Mensagem("","");
 
   /** lista de mensagens para o template/bind */
-  mensagens : FirebaseListObservable<any[]>;
+  private mensagens : FirebaseListObservable<any[]>;
 
   /** construtor com instância do serviço MensagemService */
   constructor(private mensagemService:MensagemService) {}
 
   /** adicionar mensagem */
   addMensagem(msg:Mensagem){
-    console.log('component-add: ' + msg.descricao);
+    // console.log('component-add: ' + msg.descricao);
     msg.descricoMinusculo = msg.descricao.toLowerCase();
     this.mensagemService.addMensagem(msg);
     //limpando campos da tela
@@ -39,7 +39,7 @@ export class MensagemComponent implements OnInit {
 
   /** excluir mensagem */
   delMensagem(){
-    console.log("component-del: "+ this.key);
+    // console.log("component-del: "+ this.key);
     this.mensagemService.delMensagem(this.key);
   }
 

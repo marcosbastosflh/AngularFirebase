@@ -2,7 +2,7 @@ export class Mensagem {
     codigo: string;
     descricao: string;
     descricoMinusculo: string;
-    data: number;
+    private data: number;
 
     constructor(codigo:string, descricao:string){
         this.codigo = codigo;
