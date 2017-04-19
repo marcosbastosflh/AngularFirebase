@@ -5,7 +5,6 @@ import { Mensagem } from './mensagem.model';
 
 @Injectable()
 export class MensagemService {
-  
   /** lista de mensagem ordenada por descrição */
   private items: FirebaseListObservable<any> = this.db.list('/mensagem', {
       query: {
@@ -15,26 +14,25 @@ export class MensagemService {
   );
 
   /** construtor com instância para firebase */
-  constructor(private db:AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase) { }
 
   /** listar todas mensagens */
-  getMensagens():FirebaseListObservable<Mensagem[]>{
+  getMensagens(): FirebaseListObservable<Mensagem[]> {
     return this.items;
   }
 
   /** adicionar mensagem */
-  addMensagem(msg: Mensagem){
+  addMensagem(msg: Mensagem) {
     // console.log('service-add: ' + msg.descricao);
-    //enviando a Mensagem para o firebase
+    // enviando a Mensagem para o firebase
     this.items.push(msg);
-    //this.items.push({ id: 9, descricao: 'teste 9', data: new Date().getTime() });
+    // this.items.push({ id: 9, descricao: 'teste 9', data: new Date().getTime() });
   }
 
   /** excluir mensagem passando uma Mensagem*/
-  delMensagem(key: string){
+  delMensagem(key: string) {
     // console.log('service-del: ' + key);
-    //removendo a Mensagem do firebase
+    // removendo a Mensagem do firebase
     this.items.remove(key);
   }
-
 }

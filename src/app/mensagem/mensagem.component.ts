@@ -11,34 +11,34 @@ import { Mensagem } from './mensagem.model';
 })
 export class MensagemComponent implements OnInit {
 
-  //variável para controlar que item será removido
-  private key: string; 
+  // variável para controlar que item será removido
+  private key: string;
 
   /** mensagem para o template/bind */
-  private mensagem : Mensagem = new Mensagem("","");
+  private mensagem: Mensagem = new Mensagem('', '');
 
   /** lista de mensagens para o template/bind */
-  private mensagens : FirebaseListObservable<any[]>;
+  private mensagens: FirebaseListObservable<any[]>;
 
   /** construtor com instância do serviço MensagemService */
-  constructor(private mensagemService:MensagemService) {}
+  constructor(private mensagemService: MensagemService) {}
 
   /** adicionar mensagem */
-  addMensagem(msg:Mensagem){
+  addMensagem(msg: Mensagem) {
     // console.log('component-add: ' + msg.descricao);
-    msg.descricoMinusculo = msg.descricao.toLowerCase();
+    msg.descricaoMinusculo = msg.descricao.toLowerCase();
     this.mensagemService.addMensagem(msg);
-    //limpando campos da tela
-    this.mensagem = new Mensagem("","");
+    // limpando campos da tela
+    this.mensagem = new Mensagem('', '');
   }
 
   /** seta o item a ser removido */
-  setKey(key:string){
-    this.key = key; 
+  setKey(key: string) {
+    this.key = key;
   }
 
   /** excluir mensagem */
-  delMensagem(){
+  delMensagem() {
     // console.log("component-del: "+ this.key);
     this.mensagemService.delMensagem(this.key);
   }
@@ -47,5 +47,4 @@ export class MensagemComponent implements OnInit {
   ngOnInit() {
     this.mensagens = this.mensagemService.getMensagens();
   }
-
 }

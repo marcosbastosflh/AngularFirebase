@@ -13,11 +13,11 @@ import { AppsettingsComponent } from './appsettings/appsettings.component';
 
 // Must export the config
 export const firebaseConfig = {
-    apiKey: "AIzaSyDKOlswDHl6fn4KeSPwyRMA5kWSNq42MeQ",
-    authDomain: "angularestudo-12c45.firebaseapp.com",
-    databaseURL: "https://angularestudo-12c45.firebaseio.com",
-    storageBucket: "angularestudo-12c45.appspot.com",
-    messagingSenderId: "206178587178"
+    apiKey: 'AIzaSyDKOlswDHl6fn4KeSPwyRMA5kWSNq42MeQ',
+    authDomain: 'angularestudo-12c45.firebaseapp.com',
+    databaseURL: 'https://angularestudo-12c45.firebaseio.com',
+    storageBucket: 'angularestudo-12c45.appspot.com',
+    messagingSenderId: '206178587178'
 };
 
 @NgModule({
@@ -31,7 +31,7 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,    
+    HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
     MensagemModule
   ],
