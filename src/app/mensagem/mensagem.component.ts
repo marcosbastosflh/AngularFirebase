@@ -15,13 +15,13 @@ export class MensagemComponent implements OnInit {
   private key: string;
 
   // modo de edição
-  private edicao: boolean = false;
+  public edicao: boolean = false;
 
   /** mensagem para o template/bind */
-  private mensagem: Mensagem = new Mensagem('', '');
+  public mensagem: Mensagem = new Mensagem('', '');
 
   /** lista de mensagens para o template/bind */
-  private mensagens: FirebaseListObservable<any[]>;
+  public mensagens: FirebaseListObservable<any[]>;
 
   /** construtor com instância do serviço MensagemService */
   constructor(private mensagemService: MensagemService) {}
