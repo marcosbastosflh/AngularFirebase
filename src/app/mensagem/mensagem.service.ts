@@ -25,7 +25,8 @@ export class MensagemService {
   addMensagem(msg: Mensagem) {
     // console.log('service-add: ' + msg.descricao);
     // enviando a Mensagem para o firebase
-    this.items.push(msg);
+    //this.items.push(msg);
+    this.db.list('/mensagem').$ref.ref.child(msg.codigo).set(msg);
     // this.items.push({ id: 9, descricao: 'teste 9', data: new Date().getTime() });
   }
 

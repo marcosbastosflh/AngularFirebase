@@ -14,6 +14,9 @@ export class MensagemComponent implements OnInit {
   // variável para controlar que item será removido
   private key: string;
 
+  // modo de edição
+  private edicao: boolean = false;
+
   /** mensagem para o template/bind */
   private mensagem: Mensagem = new Mensagem('', '');
 
@@ -30,6 +33,8 @@ export class MensagemComponent implements OnInit {
     this.mensagemService.addMensagem(msg);
     // limpando campos da tela
     this.mensagem = new Mensagem('', '');
+
+    this.edicao = false;
   }
 
   /** seta o item a ser removido */
@@ -41,6 +46,20 @@ export class MensagemComponent implements OnInit {
   delMensagem() {
     // console.log("component-del: "+ this.key);
     this.mensagemService.delMensagem(this.key);
+  }
+
+  /** carega valores para edição */
+  carregarValores(msg) {
+    //copia o objeto
+    this.mensagem = Object.assign({}, msg);
+    //coloca em modo de edição
+    this.edicao = true;
+  }
+
+  limparCampos(){
+    this.mensagem = new Mensagem('', '');
+
+    this.edicao = false;
   }
 
   /** carregar todas as mensagens ao iniciar */

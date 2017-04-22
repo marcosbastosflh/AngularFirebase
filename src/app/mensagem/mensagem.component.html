@@ -5,24 +5,26 @@
     <form #loginForm="ngForm">
       <div class="form-group">
         <div class="text-right">
-          <input type="text" name="codigo" maxlength="3" class="form-control" required placeholder="Código" [(ngModel)]="mensagem.codigo" />
+          <input type="text" name="codigo" maxlength="3" [readonly]="edicao" class="form-control" required placeholder="Código" [(ngModel)]="mensagem.codigo" />
           <input type="text" name="descricao" class="form-control" required placeholder="Descrição" [(ngModel)]="mensagem.descricao" />
-          <button type="submit" class="btn btn-info btn-sm" [disabled]="!loginForm.form.valid" (click)="addMensagem(mensagem)">Adicionar</button>
+          <button type="submit" class="btn btn-default btn-sm" [disabled]="!edicao" (click)="limparCampos()">Cancelar</button>
+          <button type="submit" class="btn btn-info btn-sm" [disabled]="!loginForm.form.valid" (click)="addMensagem(mensagem)">Salvar</button>
         </div>
       </div>
     </form>
     <div class="table-responsive ">
-      <table class="table table-striped table-hover">
+      <table class="table table-striped table-hover" >
         <th class="text-left">Código</th>
         <th class="text-center">Descrição</th>
         <th class="text-center">Cadastro</th>
         <th class="text-right"></th>
         <tr *ngFor="let item of mensagens | async">
-          <td class="text-left">{{item.codigo}}</td>
+          <td class="text-left">{{ item.$key }}</td>
           <td>{{item.descricao}}</td>
           <td class="text-center">{{item.data | date :  "dd/MM/yyyy"}}</td>
           <td class="text-right">
-            <button class="btn btn-danger btn-sm" [value]="item.$key" #itemTemplate data-toggle="modal" data-target="#myModal" (click)="setKey(item.$key)">Excluir</button>
+            <button class="btn btn-warning btn-sm" [disabled]="edicao" [value]="item.$key" (click)="carregarValores(item)">Editar</button>
+            <button class="btn btn-danger btn-sm" [disabled]="edicao" [value]="item.$key" #itemTemplate data-toggle="modal" data-target="#myModal" (click)="setKey(item.$key)">Excluir</button>
           </td>
         </tr>
       </table>
