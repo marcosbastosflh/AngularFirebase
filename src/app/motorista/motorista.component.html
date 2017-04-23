@@ -1,0 +1,8 @@
+<p>
+  Motorista:
+</p>
+ <ul>
+   <li *ngFor="let item of itens | async">
+     {{ item.$key }} : {{ item.qtd }}
+    </li>
+ </ul>

@@ -2,14 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AngularFireModule } from 'angularfire2';
 import { AppComponent } from './app.component';
-import { MensagemModule } from './mensagem/mensagem.module';
 import { AppheaderComponent } from './appheader/appheader.component';
 import { AppfooterComponent } from './appfooter/appfooter.component';
 import { AppmenuComponent } from './appmenu/appmenu.component';
 import { AppsettingsComponent } from './appsettings/appsettings.component';
+import { MotoristaComponent } from './motorista/motorista.component';
+import { MotoristaService } from './motorista/motorista.service';
+import { MensagemComponent } from './mensagem/mensagem.component';
+import { MensagemService } from './mensagem/mensagem.service';
 
 // Must export the config
 export const firebaseConfig = {
@@ -20,22 +24,33 @@ export const firebaseConfig = {
     messagingSenderId: '206178587178'
 };
 
+//Rotas
+const appRoutes: Routes = [
+  { path: 'mensagem', component: MensagemComponent },
+  { path: 'motorista', component: MotoristaComponent }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
     AppheaderComponent,
     AppfooterComponent,
     AppmenuComponent,
-    AppsettingsComponent
+    AppsettingsComponent,
+    MensagemComponent,
+    MotoristaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    MensagemModule
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    MensagemService,
+    MotoristaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
