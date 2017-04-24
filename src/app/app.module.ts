@@ -5,14 +5,17 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AngularFireModule } from 'angularfire2';
+import { AppRoutingModule } from './app-routing.module';
+// Componentes
 import { AppComponent } from './app.component';
 import { AppheaderComponent } from './appheader/appheader.component';
 import { AppfooterComponent } from './appfooter/appfooter.component';
 import { AppmenuComponent } from './appmenu/appmenu.component';
 import { AppsettingsComponent } from './appsettings/appsettings.component';
 import { MotoristaComponent } from './motorista/motorista.component';
-import { MotoristaService } from './motorista/motorista.service';
 import { MensagemComponent } from './mensagem/mensagem.component';
+// Serviços
+import { MotoristaService } from './motorista/motorista.service';
 import { MensagemService } from './mensagem/mensagem.service';
 
 // Must export the config
@@ -23,12 +26,6 @@ export const firebaseConfig = {
     storageBucket: 'angularestudo-12c45.appspot.com',
     messagingSenderId: '206178587178'
 };
-
-//Rotas
-const appRoutes: Routes = [
-  { path: 'mensagem', component: MensagemComponent },
-  { path: 'motorista', component: MotoristaComponent }
-];
 
 @NgModule({
   declarations: [
@@ -45,7 +42,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [
     MensagemService,

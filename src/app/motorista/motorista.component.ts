@@ -16,7 +16,7 @@ export class MotoristaComponent implements OnInit {
   private key: string;
 
   // modo de edição
-  public edicao: boolean = false;
+  public edicao = false;
 
   /** mensagem para o template/bind */
   public motorista: Motorista = new Motorista('', '');
@@ -50,24 +50,24 @@ export class MotoristaComponent implements OnInit {
 
   /** carega valores para edição */
   carregarValores(obj) {
-    //copia o objeto
+    // copia o objeto
     this.motorista = Object.assign({}, obj);
-    //coloca em modo de edição
+    // coloca em modo de edição
     this.edicao = true;
   }
 
-  limparCampos(){
+  limparCampos() {
     this.motorista = new Motorista('', '');
     this.edicao = false;
   }
 
-  dirigir(obj){
+  dirigir(obj) {
     this.motoristaService.dirigir(obj);
   }
 
   /** carregar todas as mensagens ao iniciar */
   ngOnInit() {
     this.itens = this.motoristaService.getAll();
-    console.log('Lista: '+ this.itens.$ref);
+    console.log( 'Lista: ' + this.itens.$ref );
   }
 }

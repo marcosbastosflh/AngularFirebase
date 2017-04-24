@@ -36,7 +36,7 @@ export class MotoristaService {
     this.itens.remove(key);
   }
 
-  dirigir(obj){
+  dirigir(obj) {
     obj.qtd++;
     obj.data = new Date().getTime();
     this.db.list('/motorista').$ref.ref.child(obj.$key).set(obj);

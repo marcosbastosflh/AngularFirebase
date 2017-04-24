@@ -15,7 +15,7 @@ export class MensagemComponent implements OnInit {
   private key: string;
 
   // modo de edição
-  public edicao: boolean = false;
+  public edicao = false;
 
   /** mensagem para o template/bind */
   public mensagem: Mensagem = new Mensagem('', '');
@@ -50,13 +50,13 @@ export class MensagemComponent implements OnInit {
 
   /** carega valores para edição */
   carregarValores(msg) {
-    //copia o objeto
+    // copia o objeto
     this.mensagem = Object.assign({}, msg);
-    //coloca em modo de edição
+    // coloca em modo de edição
     this.edicao = true;
   }
 
-  limparCampos(){
+  limparCampos() {
     this.mensagem = new Mensagem('', '');
 
     this.edicao = false;
