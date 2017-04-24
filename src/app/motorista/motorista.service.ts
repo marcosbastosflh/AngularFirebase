@@ -10,6 +10,7 @@ export class MotoristaService {
   private itens: FirebaseListObservable<any> = this.db.list('/motorista', {
       query: {
         orderByChild: 'qtd'
+        // ,limitToFirst: 3
       }
     }
   );
