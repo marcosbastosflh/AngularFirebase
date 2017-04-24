@@ -58,8 +58,11 @@ export class MotoristaComponent implements OnInit {
 
   limparCampos(){
     this.motorista = new Motorista('', '');
-
     this.edicao = false;
+  }
+
+  dirigir(obj){
+    this.motoristaService.dirigir(obj);
   }
 
   /** carregar todas as mensagens ao iniciar */

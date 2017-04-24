@@ -35,5 +35,11 @@ export class MotoristaService {
     // removendo a Mensagem do firebase
     this.itens.remove(key);
   }
+
+  dirigir(obj){
+    obj.qtd++;
+    obj.data = new Date().getTime();
+    this.db.list('/motorista').$ref.ref.child(obj.$key).set(obj);
+  }
 }
 
