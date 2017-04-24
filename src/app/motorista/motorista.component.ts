@@ -68,6 +68,5 @@ export class MotoristaComponent implements OnInit {
   /** carregar todas as mensagens ao iniciar */
   ngOnInit() {
     this.itens = this.motoristaService.getAll();
-    console.log( 'Lista: ' + this.itens.$ref );
   }
 }
