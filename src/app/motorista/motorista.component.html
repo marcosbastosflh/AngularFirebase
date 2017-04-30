@@ -15,7 +15,7 @@
             <td class="text-center">{{ item.qtd }}</td>
             <td class="text-center">{{ item.data | date :  "dd/MM/yyyy" }}</td>
             <td class="text-right">
-              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="dirigir(item)" title="Dirigir"><i class="fa fa-car" aria-hidden="true"></i></button>
+              <button type="button" class="btn btn-primary" *ngIf="podeDirigir(item.data | date : 'dd/MM/yyyy')" data-dismiss="modal" (click)="dirigir(item)" title="Dirigir"><i class="fa fa-car" aria-hidden="true"></i></button>
             </td>
           </tr>
         </table>

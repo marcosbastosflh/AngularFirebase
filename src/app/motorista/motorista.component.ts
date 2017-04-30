@@ -65,6 +65,15 @@ export class MotoristaComponent implements OnInit {
     this.motoristaService.dirigir(obj);
   }
 
+  podeDirigir(date): boolean {
+    let hoje = new Date().toLocaleDateString('pt-BR');
+    //console.log(hoje + " = " + date);
+    if(date == hoje){
+      return false;
+    }
+    return true;
+  }
+
   /** carregar todas as mensagens ao iniciar */
   ngOnInit() {
     this.itens = this.motoristaService.getAll();
