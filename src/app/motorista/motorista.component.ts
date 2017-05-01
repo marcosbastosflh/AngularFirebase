@@ -29,22 +29,23 @@ export class MotoristaComponent implements OnInit {
 
   /** adicionar mensagem */
   add(obj: Motorista) {
-    // console.log('component-add: ' + obj.descricao);
+    // salvar
     this.motoristaService.add(obj);
     // limpando campos da tela
     this.motorista = new Motorista('', '');
-
+    // retira do modo de edição
     this.edicao = false;
   }
 
   /** seta o item a ser removido */
   setKey(key: string) {
+    // guarda chave do objeto que será manipulado
     this.key = key;
   }
 
   /** excluir mensagem */
   del() {
-    // console.log("component-del: "+ this.key);
+    // excluir
     this.motoristaService.del(this.key);
   }
 
@@ -56,19 +57,25 @@ export class MotoristaComponent implements OnInit {
     this.edicao = true;
   }
 
+  /** limpa objeto e retira do modo de edição */
   limparCampos() {
+    // cria um objeto limpo
     this.motorista = new Motorista('', '');
+    // retira do modo de edição
     this.edicao = false;
   }
 
+  /** atualiza a qtd e data de última ida do motorista */
   dirigir(obj) {
+    // dirigir
     this.motoristaService.dirigir(obj);
   }
 
+  /** verifica se o motorista ainda pode dirigir no dia atual */
   podeDirigir(date): boolean {
-    let hoje = new Date().toLocaleDateString('pt-BR');
-    //console.log(hoje + " = " + date);
-    if(date == hoje){
+    const hoje = new Date().toLocaleDateString('pt-BR');
+    // se a última vez for o dia atual
+    if ( date === hoje ) {
       return false;
     }
     return true;

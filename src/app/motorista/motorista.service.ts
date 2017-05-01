@@ -24,6 +24,7 @@ export class MotoristaService {
   }
 
   /** adicionar mensagem */
+  /** TODO: criar tabela de detalhes */
   add(obj: Motorista) {
     // console.log('service-add: ' + obj.descricao);
     // enviando a Mensagem para o firebase
