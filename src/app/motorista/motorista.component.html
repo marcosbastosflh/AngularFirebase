@@ -13,9 +13,9 @@
             <td class="text-left">{{ i + 1 }}ª</td>
             <td>{{ item.$key }}</td>
             <td class="text-center">{{ item.qtd }}</td>
-            <td class="text-center">{{ item.data | date :  "dd/MM/yyyy" }}</td>
+            <td class="text-center">{{ item.data | date:'fullDate'  }}</td>
             <td class="text-right">
-              <button type="button" class="btn btn-primary" *ngIf="podeDirigir(item.data | date : 'dd/MM/yyyy')" data-dismiss="modal" (click)="dirigir(item)" title="Dirigir"><i class="fa fa-car" aria-hidden="true"></i></button>
+              <button type="button" class="btn btn-primary" *ngIf="podeDirigir(item.data | date : 'shortDate')" data-dismiss="modal" (click)="dirigir(item)" title="Dirigir"><i class="fa fa-car" aria-hidden="true"></i></button>
             </td>
           </tr>
         </table>
