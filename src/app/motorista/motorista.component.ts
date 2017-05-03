@@ -70,7 +70,7 @@ export class MotoristaComponent implements OnInit {
   }
 
   /** atualiza a qtd e data de última ida do motorista */
-  dirigir(obj) {
+  dirigir(obj: Motorista) {
     // dirigir
     this.motoristaService.dirigir(obj);
   }
