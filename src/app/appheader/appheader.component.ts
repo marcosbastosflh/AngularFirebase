@@ -1,4 +1,7 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
+
+import { FirebaseService } from './../shared/firebase.service';
 
 @Component({
   selector: 'app-appheader',
@@ -7,11 +10,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AppheaderComponent implements OnInit {
 
-  @Input() nomeUsuario = 'Anônimo';
+  @Input() nomeUsuario = '';
+  @Input() emailUsuario = '';
 
-  constructor() { }
+  constructor(public authService: FirebaseService, private router:Router) { }
 
   ngOnInit() {
   }
 
+  logout() {
+    this.authService.logout().then((data) => {
+      this.router.navigate(['login']);
+    })
+  }
 }

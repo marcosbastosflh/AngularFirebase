@@ -15,8 +15,10 @@ import { AppsettingsComponent } from './appsettings/appsettings.component';
 import { MotoristaComponent } from './motorista/motorista.component';
 import { MensagemComponent } from './mensagem/mensagem.component';
 // Serviços
+import { FirebaseService } from './shared/firebase.service';
 import { MotoristaService } from './motorista/motorista.service';
 import { MensagemService } from './mensagem/mensagem.service';
+import { ApploginComponent } from './applogin/applogin.component';
 
 // Must export the config
 export const firebaseConfig = {
@@ -35,7 +37,8 @@ export const firebaseConfig = {
     AppmenuComponent,
     AppsettingsComponent,
     MensagemComponent,
-    MotoristaComponent
+    MotoristaComponent,
+    ApploginComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ export const firebaseConfig = {
       useValue: 'pt-BR'
     },
     MensagemService,
-    MotoristaService
+    MotoristaService,
+    FirebaseService
   ],
   bootstrap: [AppComponent]
 })

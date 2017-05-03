@@ -24,6 +24,10 @@ export class MotoristaComponent implements OnInit {
   /** lista de mensagens para o template/bind */
   public itens: FirebaseListObservable<any[]>;
 
+  private isLoggedIn: Boolean;
+  private user_displayName: String;
+  private user_email: String;
+
   /** construtor com instância do serviço MensagemService */
   constructor(private motoristaService: MotoristaService) {}
 

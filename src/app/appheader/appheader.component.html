@@ -20,14 +20,14 @@
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <span class="hidden-xs">{{nomeUsuario}}</span>
+            <span class="hidden-xs">{{ nomeUsuario }}</span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
               <p>
-                {{nomeUsuario}} - Estudo 
-                <small>Angular com Firebase</small>
+                {{ nomeUsuario }} - Estudo 
+                <small>{{ emailUsuario }}</small>
               </p>
             </li>
             <!-- Menu Body -->
@@ -42,7 +42,7 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-right">
-                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                <a href="#" class="btn btn-default btn-flat" (click)="logout()">Sair</a>
               </div>
             </li>
           </ul>
