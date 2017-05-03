@@ -11,7 +11,7 @@ import { FirebaseService } from './shared/firebase.service';
 export class AppComponent {
 
   public user_displayName: String = '';
-  private user_email: String;
+  public user_email: String;
   
   constructor(public fireService: FirebaseService, private router: Router) {
     this.fireService.af.auth.subscribe(
