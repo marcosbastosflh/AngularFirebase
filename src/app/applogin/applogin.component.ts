@@ -10,7 +10,7 @@ import { FirebaseService } from '../shared/firebase.service';
 })
 export class ApploginComponent implements OnInit {
 
-  constructor(public authService: FirebaseService, private router:Router) { }
+constructor(public authService: FirebaseService, private router: Router) {}
 
   ngOnInit() {
   }
@@ -18,6 +18,6 @@ export class ApploginComponent implements OnInit {
   login() {
     this.authService.loginWithGoogle().then((data) => {
       this.router.navigate(['']);
-    })
+    });
   }
 }

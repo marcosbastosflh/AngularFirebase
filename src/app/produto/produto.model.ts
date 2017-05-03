@@ -1,4 +1,4 @@
-export class Mensagem {
+export class Produto {
     codigo: string;
     descricao: string;
     descricaoMinusculo: string;

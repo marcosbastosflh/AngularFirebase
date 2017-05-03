@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2';
 
-import { Mensagem } from './mensagem.model';
+import { Produto } from './produto.model';
 
 @Injectable()
-export class MensagemService {
-  /** lista de mensagem ordenada por descrição */
-  private itens: FirebaseListObservable<any> = this.db.list('/mensagem', {
+export class ProdutoService {
+  /** lista ordenada por descrição */
+  private itens: FirebaseListObservable<any> = this.db.list('/produto', {
       query: {
         orderByChild: 'descricaoMinusculo'
       }
@@ -16,24 +16,24 @@ export class MensagemService {
   /** construtor com instância para firebase */
   constructor(private db: AngularFireDatabase) { }
 
-  /** listar todas mensagens */
-  getMensagens(): FirebaseListObservable<Mensagem[]> {
+  /** listar todos produtos */
+  getProduto(): FirebaseListObservable<Produto[]> {
     return this.itens;
   }
 
-  /** adicionar mensagem */
-  addMensagem(msg: Mensagem) {
+  /** adicionar produto */
+  addProduto(obj: Produto) {
     // console.log('service-add: ' + msg.descricao);
-    // enviando a Mensagem para o firebase
+    // enviando para o firebase
     // this.items.push(msg);
-    this.db.list('/mensagem').$ref.ref.child(msg.codigo).set(msg);
+    this.db.list('/produto').$ref.ref.child(obj.codigo).set(obj);
     // this.items.push({ id: 9, descricao: 'teste 9', data: new Date().getTime() });
   }
 
-  /** excluir mensagem passando uma Mensagem*/
-  delMensagem(key: string) {
+  /** excluir passando um Produto*/
+  delProduto(key: string) {
     // console.log('service-del: ' + key);
-    // removendo a Mensagem do firebase
+    // removendo do firebase
     this.itens.remove(key);
   }
 }

@@ -13,7 +13,7 @@ export class AppheaderComponent implements OnInit {
   @Input() nomeUsuario = '';
   @Input() emailUsuario = '';
 
-  constructor(public authService: FirebaseService, private router:Router) { }
+  constructor(public authService: FirebaseService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,6 +21,6 @@ export class AppheaderComponent implements OnInit {
   logout() {
     this.authService.logout().then((data) => {
       this.router.navigate(['login']);
-    })
+    });
   }
 }

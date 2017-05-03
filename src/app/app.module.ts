@@ -13,11 +13,11 @@ import { AppfooterComponent } from './appfooter/appfooter.component';
 import { AppmenuComponent } from './appmenu/appmenu.component';
 import { AppsettingsComponent } from './appsettings/appsettings.component';
 import { MotoristaComponent } from './motorista/motorista.component';
-import { MensagemComponent } from './mensagem/mensagem.component';
+import { ProdutoComponent } from './produto/produto.component';
 // Serviços
 import { FirebaseService } from './shared/firebase.service';
 import { MotoristaService } from './motorista/motorista.service';
-import { MensagemService } from './mensagem/mensagem.service';
+import { ProdutoService } from './produto/produto.service';
 import { ApploginComponent } from './applogin/applogin.component';
 
 // Must export the config
@@ -36,7 +36,7 @@ export const firebaseConfig = {
     AppfooterComponent,
     AppmenuComponent,
     AppsettingsComponent,
-    MensagemComponent,
+    ProdutoComponent,
     MotoristaComponent,
     ApploginComponent
   ],
@@ -52,7 +52,7 @@ export const firebaseConfig = {
       provide: LOCALE_ID,
       useValue: 'pt-BR'
     },
-    MensagemService,
+    ProdutoService,
     MotoristaService,
     FirebaseService
   ],

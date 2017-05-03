@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseListObservable } from 'angularfire2';
+import { Router } from '@angular/router';
 
+import { FirebaseListObservable } from 'angularfire2';
+import { FirebaseService } from './../shared/firebase.service';
 import { MotoristaService } from './motorista.service';
 import { Motorista } from './motorista.model';
 
@@ -24,12 +26,20 @@ export class MotoristaComponent implements OnInit {
   /** lista de mensagens para o template/bind */
   public itens: FirebaseListObservable<any[]>;
 
-  private isLoggedIn: Boolean;
-  private user_displayName: String;
   private user_email: String;
 
   /** construtor com instância do serviço MensagemService */
-  constructor(private motoristaService: MotoristaService) {}
+  constructor(private motoristaService: MotoristaService, public fireService: FirebaseService, private router: Router) {
+    this.fireService.af.auth.subscribe(
+      (auth) => {
+        if (auth == null) {
+          this.router.navigate(['login']);
+        } else {
+          this.user_email = auth.google.email;
+        }
+      }
+    );
+  }
 
   /** adicionar mensagem */
   add(obj: Motorista) {
@@ -72,6 +82,7 @@ export class MotoristaComponent implements OnInit {
   /** atualiza a qtd e data de última ida do motorista */
   dirigir(obj: Motorista) {
     // dirigir
+    obj.usuario = this.user_email;
     this.motoristaService.dirigir(obj);
   }
 

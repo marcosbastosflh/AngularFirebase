@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2';
-import { FirebaseService } from './../shared/firebase.service';
 import { Motorista } from './motorista.model';
 
 @Injectable()
@@ -15,13 +14,8 @@ export class MotoristaService {
     }
   );
 
-  private user_email: String;
   /** construtor com instância para firebase */
-  constructor(private db: AngularFireDatabase, public fireService: FirebaseService) {
-    this.fireService.af.auth.subscribe(
-      (auth) => {this.user_email = auth.google.email;}
-    );
-   }
+  constructor(private db: AngularFireDatabase) {}
 
   /** listar todas mensagens */
   getAll(): FirebaseListObservable<Motorista[]> {
@@ -46,7 +40,6 @@ export class MotoristaService {
   dirigir(obj) {
     obj.qtd++;
     obj.data = new Date().getTime();
-    obj.usuario = this.user_email;
     this.db.list('/motorista').$ref.ref.child(obj.$key).set(obj);
   }
 }
