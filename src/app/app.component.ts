@@ -23,7 +23,7 @@ export class AppComponent {
         } else {
           this.user_displayName = auth.google.displayName;
           this.user_email = auth.google.email;
-          console.log(auth);
+          // console.log(auth);
           this.router.navigate(['']);
         }
       }
